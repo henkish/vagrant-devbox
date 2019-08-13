@@ -1,10 +1,10 @@
 ﻿Vagrant.configure("2") do |config|
+  config.vm.define "devbox"
   config.vm.box = "ubuntu/bionic64"
-  config.disksize.size = "50GB"
   config.vm.network "private_network", ip: "192.168.50.2"
+  config.disksize.size = "50GB"
 
   config.vm.provider "virtualbox" do |v|
-    v.name = "devbox"
     v.gui = false
     v.memory = 4096
     v.cpus = 2
