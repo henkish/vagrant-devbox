@@ -4,6 +4,7 @@
   config.vm.network "private_network", ip: "192.168.50.2"
 
   config.vm.provider "virtualbox" do |v|
+    v.name = "devbox"
     v.gui = false
     v.memory = 4096
     v.cpus = 2
