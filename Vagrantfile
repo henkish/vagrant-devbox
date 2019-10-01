@@ -5,6 +5,7 @@
   config.disksize.size = "50GB"
 
   config.vm.provider "virtualbox" do |v|
+    v.name = "devbox"
     v.gui = false
     v.memory = 4096
     v.cpus = 2
@@ -43,7 +44,11 @@
     apt-get install -y \
       jq \
       kubectl \
-      google-cloud-sdk
+      google-cloud-sdk \
+      nodejs \
+      npm
+
+    npm install -g funny-bunny
   SCRIPT
   
   config.vm.provision "ssh-keyscan", type: "shell", inline: <<-SCRIPT
