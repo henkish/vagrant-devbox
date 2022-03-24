@@ -66,8 +66,11 @@
     npm install -g funny-bunny
 
     curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
-    sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+    install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
     rm kubectl
+
+    curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+    chmod +x /usr/local/bin/docker-compose
   SCRIPT
 
   config.vm.provision "ssh-keyscan", type: "shell", inline: <<-SCRIPT
